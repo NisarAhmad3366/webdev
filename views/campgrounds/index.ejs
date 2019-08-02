@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+
+<!-- jumbotron and images -->
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to My Campgrounds!</h1>
+			<p>
+				The best camp grounds select by hand....
+			</p>
+			<p>
+				<a class="btn btn-secondary btn-large" href="/campgrounds/new"> Add a new campground</a>	
+			</p>
+		</div>	
+	</header>
+
+	<!-- imp	 -->
+	<!-- this style will make sure the grid is fixed even if image size are different -->
+	<div class="row text-center" style="display: flex; flex-wrap: wrap">
+		<% campgrounds.forEach(function(camp){ %>
+		 	<div class="col-md-3 col-sm-6">		 	
+		 			<img class="img-thumbnail" src="<%= camp.image %>">
+		 			<figcaption class="figure-caption"><strong><%= camp.name%></strong></figcaption>
+		 			<p>
+		 				<a href="/campgrounds/<%= camp._id %>" class="btn btn-secondary">More info	</a>
+			 		</p>
+
+		 	</div>
+		 			<% }); %>	
+	</div>
+</div>
+<% include ../partials/footer %>
